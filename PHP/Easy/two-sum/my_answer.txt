@@ -1,0 +1,38 @@
+class Solution {
+
+    /**
+     * @param Integer[] $nums
+     * @param Integer $target
+     * @return Integer[]
+     */
+    function twoSum($nums, $target) {
+
+        for($i=0;$i<=count($nums);$i++){
+            $sum = $nums[$i];
+            for($m=1;$m<=(count($nums)-1); $m++){
+                if(($sum + $nums[$m]) == $target){
+                    return [$i, $m];
+                }
+            }
+        }
+    }
+}
+
+class Solution {
+
+    /**
+     * @param Integer[] $nums
+     * @param Integer $target
+     * @return Integer[]
+     */
+    function twoSum($nums, $target) {
+        $numIndex = [];
+        for($i=0;$i<=count($nums);$i++){
+            $sum = $target - $nums[$i];
+            if(array_key_exists($sum, $numIndex)){
+                return [$numIndex[$sum], $i];
+            }
+            $numIndex[$nums[$i]] = $i;
+        }
+    }
+}
